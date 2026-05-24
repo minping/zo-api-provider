@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.zode</groupId>
+        <artifactId>zode-platform</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath/> <!-- 优先从本地仓库查找，找不到再根据路径查找 -->
+    </parent>
+
+    <artifactId>zo-api-provider</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.zode</groupId>
+            <artifactId>common-core</artifactId>
+            <version>1.0-SNAPSHOT</version> <!-- 版本与父项目保持一致 -->
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>2.0.31</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-parsers</artifactId>
+            <version>1.28</version> <!-- 请使用最新版本 -->
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-core</artifactId>
+            <version>1.28</version> <!-- 请使用最新版本 -->
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>4.12.0</version>
+        </dependency>
+        <!-- flexmark-java 核心库 -->
+        <dependency>
+            <groupId>com.vladsch.flexmark</groupId>
+            <artifactId>flexmark</artifactId>
+            <version>0.60.0</version> <!-- 建议使用最新版本 -->
+        </dependency>
+        <!-- 表格扩展 -->
+        <dependency>
+            <groupId>com.vladsch.flexmark</groupId>
+            <artifactId>flexmark-ext-tables</artifactId>
+            <version>0.60.0</version>
+        </dependency>
+        <!-- 其他所需扩展，如任务列表、脚注等 -->
+        <dependency>
+            <groupId>com.vladsch.flexmark</groupId>
+            <artifactId>flexmark-ext-gfm-tasklist</artifactId>
+            <version>0.60.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.17.2</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.sql</include>
+                    <include>**/*.json</include>
+                    <include>**/*.md</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                    <mainClass>com.zode.ZodeWebsiteApplication</mainClass>
+                    <layout>ZIP</layout>
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
