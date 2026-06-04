@@ -91,7 +91,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <fork>true</fork>
-                    <mainClass>com.zode.ZodeWebsiteApplication</mainClass>
+                    <mainClass>com.zode.api.ApiApplication</mainClass>
                     <layout>ZIP</layout>
                     <includeSystemScope>true</includeSystemScope>
                 </configuration>
