@@ -43,7 +43,7 @@ public class VideoServiceImpl implements VideoService {
         }
         Record ex = Db.findById("zo_file", "original_name", bid + ".mp3");
         if (ex != null){
-            return serverPath+"msg/file/download/"+ex.getStr("original_name");
+            return serverPath+"file/download/audio/"+ex.getStr("original_name");
         }
         File audio = bilibiliAudioDownloader.downloadBilibiliAudioAsMP3(bid);
         // 生成存储文件名
@@ -66,7 +66,7 @@ public class VideoServiceImpl implements VideoService {
         zoFile.set("file_extension",fileExtension);
         zoFile.set("md5_hash",md5Hash);
         Db.save("zo_file",zoFile);
-        return serverPath+"msg/file/download/"+zoFile.getStr("original_name");
+        return serverPath+"file/download/audio/"+zoFile.getStr("original_name");
     }
 
 }

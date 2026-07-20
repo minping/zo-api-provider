@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @purpose
  */
 @SpringBootApplication
-@ComponentScan(basePackages ={"com.zode","com.common","com.file"})
+@ComponentScan(basePackages ={"com.zode","com.jfinal","com.db","com.common","com.file"})
 public class ApiApplication {
 
     public static void main(String[] args) {

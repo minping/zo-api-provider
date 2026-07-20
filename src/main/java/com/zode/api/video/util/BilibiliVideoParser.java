@@ -93,10 +93,10 @@ public class BilibiliVideoParser {
             PlayUrl playUrl = new PlayUrl();
 
             // 获取视频流（取第一个）
-            JsonNode video = dash.get("video").get(0);
-            playUrl.setVideoUrl(video.get("baseUrl").asText());
-            playUrl.setVideoCodec(video.get("codecid").asInt());
-            playUrl.setVideoQuality(video.get("id").asInt());
+            //JsonNode video = dash.get("video").get(0);
+            //playUrl.setVideoUrl(video.get("baseUrl").asText());
+            //playUrl.setVideoCodec(video.get("codecid").asInt());
+            //playUrl.setVideoQuality(video.get("id").asInt());
 
             // 获取音频流（取第一个）
             JsonNode audio = dash.get("audio").get(0);
