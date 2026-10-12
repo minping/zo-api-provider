@@ -68,6 +68,23 @@
             <artifactId>jsoup</artifactId>
             <version>1.17.2</version>
         </dependency>
+
+<!--    jxls工具库    -->
+<dependency>
+    <groupId>org.jxls</groupId>
+    <artifactId>jxls</artifactId>
+    <version>2.12.0</version>
+</dependency>
+<dependency>
+    <groupId>org.jxls</groupId>
+    <artifactId>jxls-poi</artifactId>
+    <version>2.12.0</version>
+</dependency>
+<dependency>
+    <groupId>org.jxls</groupId>
+    <artifactId>jxls-jexcel</artifactId>
+    <version>1.0.6</version>
+</dependency>
     </dependencies>
 
     <build>
